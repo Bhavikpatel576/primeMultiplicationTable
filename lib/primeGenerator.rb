@@ -10,4 +10,14 @@ class PrimeGenerator
     end
     true
   end
+
+  def self.first(number)
+    prime_list = []
+    idx = 0
+    until prime_list.length == number 
+      prime_list.push(idx) if isPrime?(idx)
+      idx += 1
+    end
+    prime_list
+  end
 end
