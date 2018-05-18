@@ -1,0 +1,4 @@
+
+class MultiplicationTable
+
+end
