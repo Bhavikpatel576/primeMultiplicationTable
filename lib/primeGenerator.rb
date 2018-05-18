@@ -11,7 +11,7 @@ class PrimeGenerator
     true
   end
 
-  def self.first(number)
+  def self.first(number=10)
     prime_list = []
     idx = 0
     until prime_list.length == number 

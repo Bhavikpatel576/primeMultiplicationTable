@@ -5,28 +5,27 @@ class MultiplicationTable
   attr_accessor :table
   def initialize(size)
     @size = size
-    @table = Array.new(size) {Array.new(size)}
-    create
+    new
   end
 
   def new 
-    @table
+    @table = Array.new(size + 1) {Array.new(size + 1)}
   end
 
   def create
     @prime_list = PrimeGenerator.first(size)    
     #populate headers
-    0.upto(size - 1) do |idx|
-      @table[0][idx] = @prime_list[idx]
+    1.upto(size) do |idx|
+      @table[0][idx] = @prime_list[idx - 1]
     end
     #populate frst columns
-    0.upto(size - 1) do |idx|
-      @table[idx][0] = @prime_list[idx]
+    1.upto(size) do |idx|
+      @table[idx][0] = @prime_list[idx - 1]
     end
     #multiply values
 
-    1.upto(size - 1) do |row|
-      1.upto(size - 1) do |col|
+    1.upto(size) do |row|
+      1.upto(size) do |col|
         @table[row][col] = @table[0][col] * @table[row][0]
       end
     end
