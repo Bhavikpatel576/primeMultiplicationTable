@@ -1,8 +1,7 @@
 require_relative './primeGenerator.rb'
 
 class MultiplicationTable
-  attr_reader :size 
-  attr_accessor :table
+  attr_reader :size, :table
   def initialize(size)
     @size = size
     new
@@ -31,11 +30,5 @@ class MultiplicationTable
     end
    @table 
   end
-
-  #print out the table
-  def render
-  end
 end
 
-
-m1 = MultiplicationTable.new(5)
