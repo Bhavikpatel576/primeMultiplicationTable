@@ -1,4 +1,5 @@
-require_relative './multiplicationTable'
+#!/usr/bin/env ruby
+require_relative './lib/multiplicationTable'
 
 module Colorable # source: Stackoverflow
   def black(str);        "\033[30m#{str}\033[0m" end
@@ -17,7 +18,7 @@ module Displayable
   CONSOLE_WIDTH = 75
   
   def display_welcome
-    bannerize cyan("Welcome to the Prime Number Multiplication Table")
+    bannerize cyan("Prime Number Multiplication Table")
   end
 
   def bannerize(message, style="=")
@@ -37,11 +38,11 @@ class Render
   def initialize(table)
     @table = table
   end
-
+  
   def render
     display_welcome
     max_width = table[-1][-1].to_s.length + 1
-    @table.each do |row|
+    table.each do |row|
       center(
         red(
           row.map {|v| v.to_s.rjust(max_width)}.join(" ")
@@ -52,7 +53,30 @@ class Render
 end
 
 
-table = [[nil,2,3,5,7,11],[2,4,6,10,14,22],[3,6,9,15,21,33],[5,10,15,25,37,55],[7,14,21,35,49,77],[11,22,33,55,77,121]]
+class CLI
+  def self.help
+    puts <<~HELP
+    A prime number multiplication table generator
 
+    Commands:
+    ./render [SIZE] - will output a table based off size of input
+    ./render -s     - will output default table
+    HELP
+  end
 
-Render.new(table).render
+  def self.run(argument)
+    arg = argument[0]
+    if (arg == "")
+      send(:help)
+    elsif (arg == '-s')
+      @table = MultiplicationTable.new(10).create
+      Render.new(@table).render
+    else
+      puts " type #{arg.to_i.class} #{arg.to_i}"
+      @table = MultiplicationTable.new(arg.to_i).create
+      Render.new(@table).render
+    end
+  end
+end
+
+CLI.run(ARGV)

@@ -4,15 +4,11 @@ class MultiplicationTable
   attr_reader :size, :table
   def initialize(size)
     @size = size
-    new
-  end
-
-  def new 
+    @prime_list = PrimeGenerator.first(size)    
     @table = Array.new(size + 1) {Array.new(size + 1)}
   end
 
   def create
-    @prime_list = PrimeGenerator.first(size)    
     #populate headers
     1.upto(size) do |idx|
       @table[0][idx] = @prime_list[idx - 1]
@@ -28,7 +24,7 @@ class MultiplicationTable
         @table[row][col] = @table[0][col] * @table[row][0]
       end
     end
-   @table 
+    @table 
   end
 end
 
