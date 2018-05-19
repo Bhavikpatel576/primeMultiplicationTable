@@ -14,7 +14,9 @@ describe PrimeGenerator do
   end
 
   it 'generates prime numbers' do
+    expect(PrimeGenerator.first).to eql([2])
     expect(PrimeGenerator.first(5)).to eql([2,3,5,7,11])
     expect(PrimeGenerator.first(10)).to eql([2,3,5,7,11,13,17,19,23,29])
   end
+
 end
