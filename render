@@ -66,13 +66,12 @@ class CLI
 
   def self.run(argument)
     arg = argument[0]
-    if (arg == "")
+    if (arg.nil?)
       send(:help)
     elsif (arg == '-s')
       @table = MultiplicationTable.new(10).create
       Render.new(@table).render
     else
-      puts " type #{arg.to_i.class} #{arg.to_i}"
       @table = MultiplicationTable.new(arg.to_i).create
       Render.new(@table).render
     end
