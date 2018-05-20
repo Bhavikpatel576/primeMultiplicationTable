@@ -1,4 +1,3 @@
-
 require 'rspec'
 require './lib/primeGenerator'
 
@@ -17,6 +16,10 @@ describe PrimeGenerator do
     expect(PrimeGenerator.first).to eql([2])
     expect(PrimeGenerator.first(5)).to eql([2,3,5,7,11])
     expect(PrimeGenerator.first(10)).to eql([2,3,5,7,11,13,17,19,23,29])
+  end
+
+  it 'throws error when attempting to generates prime numbers with neg arg' do
+    expect(PrimeGenerator.first(-2)).to eql([2])
   end
 
 end

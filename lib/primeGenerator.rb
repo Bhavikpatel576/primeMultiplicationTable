@@ -1,4 +1,3 @@
-
 class PrimeGenerator
   def self.isPrime?(number)
     return false if number < 2
