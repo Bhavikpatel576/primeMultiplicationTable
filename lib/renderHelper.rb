@@ -63,10 +63,10 @@ class CLI
     if (arg.nil?) || (arg <= 0)
       send(:help)
     elsif (arg == '-s')
-      @table = MultiplicationTable.new(10).create
+      @table = MultiplicationTable.new(10).create_prime_table
       Render.new(@table).render
     else
-      @table = MultiplicationTable.new(arg.to_i).create
+      @table = MultiplicationTable.new(arg.to_i).create_prime_table
       Render.new(@table).render
     end
   end
