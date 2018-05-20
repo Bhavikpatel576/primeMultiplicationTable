@@ -1,15 +1,14 @@
 require_relative './primeGenerator.rb'
 
 class MultiplicationTable
-  attr_reader :size
-  attr_accessor :table
+  attr_reader :size, :table
   def initialize(size)
     @size = size
-    @prime_list = PrimeGenerator.first(size)    
-    @table = Array.new(size + 1) {Array.new(size + 1)}
   end
 
   def create
+    @table = Array.new(size + 1) {Array.new(size + 1)}
+    generate_prime_values
     #populate headers
     1.upto(size) do |idx|
       @table[0][idx] = @prime_list[idx - 1]
@@ -26,6 +25,12 @@ class MultiplicationTable
       end
     end
     @table 
+  end
+
+  private
+
+  def generate_prime_values
+    @prime_list = PrimeGenerator.first(size)    
   end
 end
 
