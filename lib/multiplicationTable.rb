@@ -6,7 +6,7 @@ class MultiplicationTable
     @size = size
   end
 
-  def create
+  def create_prime_table
     @table = Array.new(size + 1) {Array.new(size + 1)}
     generate_prime_values
     #populate headers
