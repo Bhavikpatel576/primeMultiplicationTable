@@ -9,6 +9,7 @@ class PrimeGenerator
   end
 
   def self.first(number=1)
+    invalid_argument if !valid_argument?(number)
     prime_list = []
     idx = 0
     until prime_list.length == number 
@@ -16,5 +17,15 @@ class PrimeGenerator
       idx += 1
     end
     prime_list
+  end
+
+  private
+
+  def self.valid_argument?(value)
+    value > 0
+  end
+
+  def self.invalid_argument
+    raise ArgumentError.new('attempt to take negative size')
   end
 end

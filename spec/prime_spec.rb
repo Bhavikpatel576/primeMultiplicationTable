@@ -19,7 +19,7 @@ describe PrimeGenerator do
   end
 
   it 'throws error when attempting to generates prime numbers with neg arg' do
-    expect(PrimeGenerator.first(-2)).to eql([2])
+    expect {PrimeGenerator.first(-2)}.to raise_error(ArgumentError)
   end
 
 end
