@@ -65,7 +65,7 @@ The program is broken up into 3 main files. First, the primeGenerator file which
 
 
 ## Todo- Optimization tasks
-- Looking at the benchmark report we can see that the standard library function `Prime.first` is about 217 times faster than the function I wrote. We can get a better result by implementing a dynamic version of the alogrithm Sieve of Eratosthenes.
+- Looking at the benchmark report we can see that the standard library function `Prime.first` is about 217 times faster than the function I wrote. We can get a better result by implementing a dynamic version of the algorithm Sieve of Eratosthenes.
 - The calculation of the multiplication table currently has a time complexity of O(n^2). Since we are building a multiplicaiton table where the column values are the same as the row values, half the values on the table do not need to be calculated. We can optimization the performance of rendering the table by memoizing the unique calculations and doing a lookup for the duplicate calculations
 
 ## Author
